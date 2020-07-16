@@ -53,8 +53,8 @@ namespace CodeBlogFitness.BL.Controller {
         private List<User> GetUsersData() {
             var formatter = new BinaryFormatter();
 
-            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate)) {
-                if (formatter.Deserialize(fs) is List<User> users) {
+            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate)) {                
+                if (fs.Length > 0 && formatter.Deserialize(fs) is List<User> users) {
                     return users;
                 }
                 else {

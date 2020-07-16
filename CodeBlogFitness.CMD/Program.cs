@@ -47,7 +47,7 @@ namespace CodeBlogFitness.CMD {
                     return value;
                 }
                 else {
-                    Console.WriteLine($"Неверный формат {name}");
+                    Console.WriteLine($"Неверный формат {name}а");
                 }
             }
         }
