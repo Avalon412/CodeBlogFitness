@@ -1,6 +1,7 @@
 ﻿using System;
 
 namespace CodeBlogFitness.BL.Model {
+    [Serializable]
     public class Food {
         #region Свойства
         /// <summary>

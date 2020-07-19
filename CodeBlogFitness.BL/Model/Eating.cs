@@ -7,6 +7,7 @@ namespace CodeBlogFitness.BL.Model {
     /// <summary>
     /// Приём пищи.
     /// </summary>
+    [Serializable]
     public class Eating {
 
         /// <summary>
