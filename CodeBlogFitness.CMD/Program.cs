@@ -1,14 +1,19 @@
 ﻿using CodeBlogFitness.BL.Controller;
 using CodeBlogFitness.BL.Model;
 using System;
+using System.Globalization;
+using System.Resources;
 
 namespace CodeBlogFitness.CMD {
     class Program {
         static void Main(string[] args) {
 
-            Console.WriteLine("Вас приветствует приложение CodeBlogeFitness");
+            var culture = CultureInfo.CreateSpecificCulture("ru-Ru");
+            var resourceManager = new ResourceManager("CodeBlogFitness.CMD.Languages.Messages_ruRu", typeof(Program).Assembly);            
 
-            Console.WriteLine("Введите имя пользователя");
+            Console.WriteLine(resourceManager.GetString("Hello"));            
+
+            Console.WriteLine(resourceManager.GetString("EnterName"));
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
@@ -48,11 +53,11 @@ namespace CodeBlogFitness.CMD {
 
             var calories = ParseDouble("калорийность");
             var proteins = ParseDouble("белки");
-            var fars = ParseDouble("жиры");
+            var fats = ParseDouble("жиры");
             var carbohydrates = ParseDouble("углеводы");
             var weight = ParseDouble("вес порции");
 
-            var product = new Food(foodName, calories, proteins, fars, carbohydrates);
+            var product = new Food(foodName, calories, proteins, fats, carbohydrates);
 
             return (product, weight);
         }
@@ -68,7 +73,7 @@ namespace CodeBlogFitness.CMD {
                     Console.WriteLine("Неверный формат даты рождения");
                 }
             }
-
+            
             return birthDate;
         }
 
