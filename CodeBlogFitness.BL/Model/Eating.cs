@@ -10,20 +10,26 @@ namespace CodeBlogFitness.BL.Model {
     [Serializable]
     public class Eating {
 
+        public int Id { get; set; }
+
         /// <summary>
         /// Момент приёма пищи.
         /// </summary>
-        public DateTime Moment { get; }
+        public DateTime Moment { get; set; }
 
         /// <summary>
         /// Список еды и её употреблённого количества.
         /// </summary>
-        public Dictionary<Food, double> Foods { get; }
+        public Dictionary<Food, double> Foods { get; set; }
+
+        public int UserId { get; set; }
 
         /// <summary>
         /// Текущий пользователь.
         /// </summary>
-        public User User { get; }
+        public virtual User User { get; set; }
+
+        public Eating() { }
 
         /// <summary>
         /// Создать процес потребления пищи.

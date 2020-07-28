@@ -4,39 +4,36 @@ namespace CodeBlogFitness.BL.Model {
     [Serializable]
     public class Food {
         #region Свойства
+
+        public int Id { get; set; }
+
         /// <summary>
         /// Наименование.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Белки.
         /// </summary>
-        public double Proteins { get; }
+        public double Proteins { get; set; }
 
         /// <summary>
         /// Жиры.
         /// </summary>
-        public double Fats { get; }
+        public double Fats { get; set; }
 
         /// <summary>
         /// Углеводы.
         /// </summary>
-        public double Carbohydrates { get; }
+        public double Carbohydrates { get; set; }
 
         /// <summary>
         /// Калории на 100 грамм.
         /// </summary>
-        public double Calories { get; }
-
-        private double CalloriesOneGram { get { return Calories / 100.0; } }
-
-        private double ProteinsOneGram { get { return Proteins / 100.0; } }
-
-        private double FatsOneGram { get { return Fats / 100.0; } }
-
-        private double CarbohydratesOneGram { get { return Carbohydrates / 100.0; } }
+        public double Calories { get; set; }
         #endregion
+
+        public Food() { }
 
         public Food(string name) : this(name, 0, 0, 0, 0) { }
 

@@ -18,9 +18,6 @@ namespace CodeBlogFitness.BL.Controller {
             Activities = GetAllActivities();
         }
 
-        private List<Activity> GetAllActivities() {
-            return Load<List<Activity>>(ACTIVITIES_FILE_NAME) ?? new List<Activity>();
-        }
 
         public void Add(Activity activity, DateTime begin, DateTime end) {            
 
@@ -38,12 +35,17 @@ namespace CodeBlogFitness.BL.Controller {
             Save();
         }
 
+        private List<Activity> GetAllActivities() {
+            return Load<Activity>() ?? new List<Activity>();
+        }
+
         private List<Exercise> GetAllExerscises() {
-            return Load<List<Exercise>>(EXERCISES_FILE_NAME) ?? new List<Exercise>();
+            return Load<Exercise>() ?? new List<Exercise>();
         }
 
         private void Save() {
-            Save(EXERCISES_FILE_NAME, Exercises);
+            Save(Exercises);
+            Save(Activities);
         }
     }
 }

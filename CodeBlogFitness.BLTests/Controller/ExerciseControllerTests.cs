@@ -20,7 +20,7 @@ namespace CodeBlogFitness.BL.Controller.Tests {
             var exerciseController = new ExerciseController(userController.CurrentUser);
             var activity = new Activity(activityName, rnd.Next(10, 50));
             //Act
-            exerciseController.Add(activity, DateTime.Now, DateTime.Now.AddHours(1.0));
+            exerciseController.Add(activity, DateTime.Now, DateTime.Now.AddHours(1));
             //Assert
             Assert.AreEqual(activityName, exerciseController.Activities.First().Name);
         }

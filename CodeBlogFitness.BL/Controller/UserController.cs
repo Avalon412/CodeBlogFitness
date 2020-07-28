@@ -49,7 +49,7 @@ namespace CodeBlogFitness.BL.Controller {
         /// </summary>
         /// <returns></returns>
         private List<User> GetUsersData() {
-            return Load<List<User>>(USERS_FILE_NAME) ?? new List<User>();
+            return Load<User>() ?? new List<User>();
         }
 
         public void SetNewUserData(string genderName, DateTime birthDate, double weight = 1, double height = 1) {
@@ -72,7 +72,7 @@ namespace CodeBlogFitness.BL.Controller {
         /// Сохранить данные пользователя.
         /// </summary>
         public void Save() {
-            Save(USERS_FILE_NAME, Users);
+            Save(Users);
         }
     }
 }
