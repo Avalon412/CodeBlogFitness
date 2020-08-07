@@ -15,8 +15,14 @@ namespace CodeBlogFitness.BL.Model {
 
         public Activity() { }
 
-        public Activity(string name, double caloriesPerMinute) {
-            //TODO: Проверки
+        public Activity(string name, double caloriesPerMinute) {            
+            if (string.IsNullOrWhiteSpace(name)) {
+                throw new ArgumentException("Имя не может быть пустым", nameof(name));
+            }
+
+            if (caloriesPerMinute <= 0) {
+                throw new ArgumentException("Каллории не могут быть ниже или равны нулю", nameof(caloriesPerMinute));
+            }
 
             Name = name;
             CaloriesPerMinute = caloriesPerMinute;

@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CodeBlogFitness.BL.Controller {
     class SerializeDataSaver : IDataSaver {
+
         public List<T> Load<T>() where T : class {
             var formatter = new BinaryFormatter();
             var fileName = typeof(T).Name;

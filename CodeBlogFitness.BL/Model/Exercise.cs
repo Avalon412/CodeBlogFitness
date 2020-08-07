@@ -18,13 +18,22 @@ namespace CodeBlogFitness.BL.Model {
 
         public virtual User User { get; set; }
 
-        public Exercise(DateTime start, DateTime finish, Activity activity, User user) {
-            //TODO: Проверки
+        public Exercise() { }
+
+        public Exercise(DateTime start, DateTime finish, Activity activity, User user) {            
+
+            if (start == null) {
+                throw new ArgumentNullException("Время начала не может быть null", nameof(start));
+            }
+
+            if (finish == null) {
+                throw new ArgumentNullException("Время окончания не может быть null", nameof(finish));
+            }
 
             Start = start;
             Finish = finish;
-            Activity = activity;
-            User = user;
+            Activity = activity ?? throw new ArgumentNullException("Активность не может быть null", nameof(activity));
+            User = user ?? throw new ArgumentNullException("Пользователь не может быть null", nameof(user));
         }
 
         public override string ToString() {
